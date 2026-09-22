@@ -20,6 +20,10 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+  color: #222222;
+  background-color: #f7f7f5;
 }
 
 /* ---------------------------------------------------------------------
@@ -31,7 +35,16 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1c1f26;
+  color: #ffffff;
 }
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
 /* ---------------------------------------------------------------------
    3. NAV LINKS (Flexbox)
    The <ul> inside <nav> becomes a flex row. Remove the default bullet
@@ -40,9 +53,19 @@ header {
 nav ul {
   display: flex;
   list-style: none;
-  gap: 1rem;
   margin: 0;
   padding: 0;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #8ab4f8;
 }
 
 /* ---------------------------------------------------------------------
@@ -54,7 +77,10 @@ nav ul {
 main {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 1rem;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 /* ---------------------------------------------------------------------
@@ -62,7 +88,6 @@ main {
    #featured spans both columns so the articles and sidebar start on
    the next row, side by side.
 --------------------------------------------------------------------- */
-
 #featured {
   grid-column: 1 / -1;
 }
@@ -72,11 +97,13 @@ main {
    Every article.card gets padding, a border or box-shadow, a
    border-radius, and margin-bottom so consecutive cards don't touch.
 --------------------------------------------------------------------- */
-article.card {
-  padding: 1rem;
-  border: 1px solid #ddd;
+.card {
+  padding: 1.25rem;
+  border: 1px solid #dddddd;
   border-radius: 8px;
-  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.25rem;
+  background-color: #ffffff;
 }
 
 /* ---------------------------------------------------------------------
@@ -84,10 +111,12 @@ article.card {
    max-width: 100% and height: auto so the image never overflows
    its container, whatever size the original file is.
 --------------------------------------------------------------------- */
-img {
+#featured img {
   max-width: 100%;
   height: auto;
+  border-radius: 8px;
 }
+
 /* ---------------------------------------------------------------------
    8. RESPONSIVE BREAKPOINT
    @media (max-width: 768px) — collapse main's grid-template-columns
@@ -96,6 +125,16 @@ img {
 @media (max-width: 768px) {
   main {
     grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
   }
 }
 
@@ -106,7 +145,8 @@ img {
 --------------------------------------------------------------------- */
 footer {
   text-align: center;
-  border-top: 1px solid #ddd;
-  padding: 1rem;
-  margin-top: 2rem;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  border-top: 1px solid #dddddd;
+  background-color: #ececec;
 }

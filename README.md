@@ -1,1 +1,0 @@
-# g247-labs-paloma-cervera
